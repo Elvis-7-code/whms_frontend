@@ -1,0 +1,32 @@
+:root {
+  --primary: #2E7D32;
+  --secondary: #6D4C41;
+  --background: #FAFAF5;
+  --text: #263238;
+  --status-healthy: #43A047;
+  --status-pregnant: #F9A825;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.navbar {
+  background-color: var(--primary);
+  color: white;
+  padding: 1rem 2rem;
+}
+
+.card {
+  background-color: white;
+  border: 2px solid var(--secondary);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.badge-healthy { background-color: var(--status-healthy); color: white; padding: 0.2rem 0.5rem; border-radius: 4px; }
+.badge-pregnant { background-color: var(--status-pregnant); color: white; padding: 0.2rem 0.5rem; border-radius: 4px; }
