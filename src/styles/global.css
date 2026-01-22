@@ -3,30 +3,22 @@
   --secondary: #6D4C41;
   --background: #FAFAF5;
   --text: #263238;
+
   --status-healthy: #43A047;
   --status-pregnant: #F9A825;
+  --status-warning: #FB8C00;
+  --status-critical: #E53935;
+  --status-info: #1E88E5;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: var(--background);
-  color: var(--text);
-}
+body { margin: 0; font-family: Arial; background-color: var(--background); color: var(--text); }
 
-.navbar {
-  background-color: var(--primary);
-  color: white;
-  padding: 1rem 2rem;
-}
+.navbar { background-color: var(--primary); color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; }
 
-.card {
-  background-color: white;
-  border: 2px solid var(--secondary);
-  border-radius: 8px;
-  padding: 1rem;
-  margin: 1rem 0;
-}
+.card { background-color: white; border: 2px solid var(--secondary); border-radius: 8px; padding: 1rem; margin: 1rem 0; }
 
-.badge-healthy { background-color: var(--status-healthy); color: white; padding: 0.2rem 0.5rem; border-radius: 4px; }
-.badge-pregnant { background-color: var(--status-pregnant); color: white; padding: 0.2rem 0.5rem; border-radius: 4px; }
+.badge-healthy { background-color: var(--status-healthy); color: white; padding: 0.3rem 0.6rem; border-radius: 4px; }
+.badge-pregnant { background-color: var(--status-pregnant); color: white; padding: 0.3rem 0.6rem; border-radius: 4px; }
+.badge-warning { background-color: var(--status-warning); color: white; padding: 0.3rem 0.6rem; border-radius: 4px; }
+.badge-critical { background-color: var(--status-critical); color: white; padding: 0.3rem 0.6rem; border-radius: 4px; }
+.badge-info { background-color: var(--status-info); color: white; padding: 0.3rem 0.6rem; border-radius: 4px; }
