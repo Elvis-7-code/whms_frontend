@@ -1,16 +1,12 @@
-import Navbar from "./components/Navbar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AddAnimal from "./pages/AddAnimal";
 import Animals from "./pages/Animals";
-
-function App() {
+export default function App() {
   return (
-    <div>
-      <Navbar />
-      <main style={{ padding: "2rem" }}>
-        <h1>Wahome Herd Management System</h1>
-        <Animals />
-      </main>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Animals />} />
+      </Routes>
+    </Router>
   );
 }
-
-export default App;
