@@ -3,6 +3,7 @@ import api from "../api/axios";
 import StatusBadge from "../components/StatusBadge";
 import {Link} from "react-router-dom";
 
+
 export default function Animals() {
   const [animals, setAnimals] = useState([]);
 
