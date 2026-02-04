@@ -16,3 +16,6 @@ const ProtectedRoute = () => {
 };
 
 export default ProtectedRoute;
+// Blocks access if not logged in
+// Redirects to login page
+// Uses your AuthConnect
