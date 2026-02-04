@@ -62,3 +62,29 @@ body { margin: 0; font-family: Arial; background-color: var(--background); color
 .sidebar a.active {
   background: #fb9751;
 }
+
+.navbar {
+    height: 60px;
+    background: #f47e3b;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logout-btn {
+    background: white;
+    color: #f47e3b;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
