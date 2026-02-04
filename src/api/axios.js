@@ -15,3 +15,6 @@ api.interceptors.request.use((config) => {
 });
 
 export default api;
+
+// Request Interceptors added - So there is no manual adding of headers again
+

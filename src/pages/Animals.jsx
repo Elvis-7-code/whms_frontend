@@ -11,9 +11,16 @@ export default function Animals() {
   useEffect(() => {
     const fetchAnimals = async () => {
       try {
-        // make sure your backend baseURL is set in api/axios.js
-        const res = await api.get("/animals"); 
-        setAnimals(res.data);
+        // Fetch animals from backend
+        const res = await api.get("/animals");
+
+        // Make sure we only set an array
+        if (Array.isArray(res.data)) {
+          setAnimals(res.data);
+        } else {
+          console.error("Expected array, got:", res.data);
+          setError("Unexpected response from backend");
+        }
       } catch (err) {
         console.error(err);
         setError("Failed to fetch animals. Is the backend running?");
@@ -33,33 +40,35 @@ export default function Animals() {
       <h2>Animals</h2>
       <Link to="/add-animal">Add New Animal</Link>
       <div style={{ display: "grid", gap: "1rem", marginTop: "1rem" }}>
-        {animals.length === 0 && <p>No animals found.</p>}
-
-        {animals.map((a) => (
-          <div
-            key={a.id}
-            className="card"
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: "1rem",
-              border: "1px solid #ddd",
-              borderRadius: "8px",
-              background: "#fff",
-            }}
-          >
-            <div>
-              <p>
-                <strong>{a.tag_number}</strong> - {a.species}
-              </p>
-              <p>
-                Breed: {a.breed} | Sex: {a.sex}
-              </p>
+        {animals.length === 0 ? (
+          <p>No animals found.</p>
+        ) : (
+          animals.map((a) => (
+            <div
+              key={a.id}
+              className="card"
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                padding: "1rem",
+                border: "1px solid #ddd",
+                borderRadius: "8px",
+                background: "#fff",
+              }}
+            >
+              <div>
+                <p>
+                  <strong>{a.tag_number}</strong> - {a.species}
+                </p>
+                <p>
+                  Breed: {a.breed} | Sex: {a.sex}
+                </p>
+              </div>
+              <StatusBadge status={a.is_pregnant ? "pregnant" : "healthy"} />
             </div>
-            <StatusBadge status={a.is_pregnant ? "pregnant" : "healthy"} />
-          </div>
-        ))}
+          ))
+        )}
       </div>
     </div>
   );

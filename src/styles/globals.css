@@ -24,3 +24,9 @@ body { margin: 0; font-family: Arial; background-color: var(--background); color
 .badge-info { background-color: var(--status-info); color: white; padding: 0.3rem 0.6rem; border-radius: 4px; }
 .button-primary { background-color: var(--primary); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; }
 .button-primary:hover { background-color: #256D27; }
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
