@@ -1,11 +1,20 @@
-export default function StatusBadge({ status }) {
-  let colorClass = "";
-  switch(status) {
-    case "healthy": colorClass = "badge-healthy"; break;
-    case "pregnant": colorClass = "badge-pregnant"; break;
-    case "warning": colorClass = "badge-warning"; break;
-    case "critical": colorClass = "badge-critical"; break;
-    default: colorClass = "badge-info";
-  }
-  return <span className={colorClass}>{status.toUpperCase()}</span>;
+export default function StatusBadge({ status = "info" }) {
+  const normalizedStatus = status.toLowerCase();
+
+  const statusClasses = {
+    healthy: "badge-healthy",
+    pregnant: "badge-pregnant",
+    warning: "badge-warning",
+    critical: "badge-critical",
+    sold: "badge-info",
+    deceased: "badge-critical",
+  };
+
+  const colorClass = statusClasses[normalizedStatus] || "badge-info";
+
+  return (
+    <span className={`status-badge ${colorClass}`}>
+      {normalizedStatus.toUpperCase()}
+    </span>
+  );
 }
