@@ -7,7 +7,7 @@ const api = axios.create({
 
 // Attach JWT token to every request if it exists
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token"); // Changed to match AuthContext
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
@@ -15,6 +15,3 @@ api.interceptors.request.use((config) => {
 });
 
 export default api;
-
-// Request Interceptors added - So there is no manual adding of headers again
-

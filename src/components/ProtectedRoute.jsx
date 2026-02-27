@@ -2,20 +2,13 @@ import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../context/AuthConnect";
 
 const ProtectedRoute = () => {
-  const { user, loading } = useAuth();
-
-  if (loading) {
-    return null; // or <Loader />
-  }
-
+  const { user } = useAuth();
+  
   if (!user) {
     return <Navigate to="/login" replace />;
   }
-
+  
   return <Outlet />;
 };
 
 export default ProtectedRoute;
-// Blocks access if not logged in
-// Redirects to login page
-// Uses your AuthConnect
